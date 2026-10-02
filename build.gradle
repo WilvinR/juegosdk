@@ -1,0 +1,38 @@
+plugins {
+    id 'com.android.application' version '9.4.0'
+}
+
+android {
+    namespace 'com.ashlands.game'
+    compileSdk 36
+
+    defaultConfig {
+        applicationId 'com.ashlands.game'
+        minSdk 26
+        targetSdk 36
+        versionCode 1
+        versionName '0.1.0'
+    }
+
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['.']
+            res.srcDirs = []
+            assets.srcDirs = ['.']
+            assets.include 'index.html'
+        }
+    }
+
+    buildTypes {
+        debug {
+            applicationIdSuffix '.debug'
+            versionNameSuffix '-debug'
+        }
+        release {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
